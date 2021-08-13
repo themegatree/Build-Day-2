@@ -20,9 +20,9 @@ Render | | | |
 Redirect | | | | 
 ===> | Render `/` | ===> | Redirect to `/login` | ===>
  | | | |
-===> | Incorrect admin login | ===> | Redirect to `login` | ===>
+===> | Incorrect admin login | ===> | Redirect to `/login` | ===>
  | | | |
- ===> | Render `/library/user` (no login) | ===> | Redirect to `/login` | ===>
+ ===> | Render `/library/:user` (no login) | ===> | Redirect to `/login` | ===>
   | | | |
    ===> | Logout | ===> | End Session and `/login` | ===>
   | | | |
@@ -50,7 +50,7 @@ id |
 Username | 
 Password | 
 
-### People
+### Friend
 Responsibilities | Collaborators
 --- | ---
 id | 
