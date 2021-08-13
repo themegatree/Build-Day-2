@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router({mergeParams: true})
 const { Admin } = require('../models')
+const { Friend } = require('../models')
 const bcrypt = require('bcryptjs');
 
 router.get("/", (req, res) => {
@@ -14,7 +15,12 @@ router.post('/', async (req, res) => {
     passwordHash: bcrypt.hashSync(req.body.password)
   })
 
-  req.session.userId = user.id
+  const friend = await Friend.create({
+    name: req.body.username
+  })
+
+  req.session.adminId = admin.id
+  req.session.homeId = friend.id
     res.redirect('/library')
 })
 

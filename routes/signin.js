@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router({mergeParams: true})
 const { Admin } = require('../models')
-const b = require('bcryptjs')
+const { Friend } = require("../models")
+const bcrypt = require('bcryptjs')
 
 
 router.get("/", (req,res) => {
@@ -15,8 +16,16 @@ router.post("/", async (req,res) =>{
         }
     })
 
-    if (admin && b.compareSync(req.body.password, admin.passwordHash)) {
+    const home = await Friend.findOne({
+        where:{
+            name: req.body.username
+        }
+    })
+
+    if (admin && bcrypt.compareSync(req.body.password, admin.passwordHash)) {
         req.session.adminId = admin.id
+        req.session.homeId = home.id
+
         res.redirect("/library")
     }
     else{

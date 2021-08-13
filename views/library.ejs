@@ -1,1 +1,69 @@
-Library
+<h1><%=admin.username%>'s Boardgame Collection</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Complexity</th>
+        <th>Location</th>
+        <th>Options</th>
+    </tr>
+
+    <% items.map((item,index) => { %>
+        <tr>
+            <td> <%= item.name %> </td>
+            <td> <%= item.rating %> </td>
+
+        <td>
+            <% friends.filter(friend => item.friendId === friend.id).map(person => { %>
+                <%= person.name %> 
+            <% }) %> 
+        </td>
+        <td>
+        <select name="people">
+                <% friends.map(friend => { %>
+                    <option value=<%=friend.id%>><%= friend.name %></option>
+                <% }) %>
+        </select>
+        <form action="/update/<%=item.id%>?_method=PUT" method="post">
+            <input type='submit' value='update' >
+        </form>
+        <form action="<%=item.id%>?_method=DELETE" method="post">
+             <input type="submit" value ="delete">
+        </form>
+        </td>
+        </tr>
+
+    <% }) %>
+
+
+
+    <tr>
+
+    <form action="/additem" method="post">
+        <td>
+                <input type="text" name=itemName>        
+        </td>
+
+        <td>
+            <input type="text" name=itemRating>
+                <input type="submit" value="Add Game">
+        </td>
+
+    </form>
+
+    <form action="/addfriend" method="post">
+        <td>
+            <input type="text" name=friendName>
+        </td>
+        <td><input type="submit" value="Add Friend"></td>
+    </form>
+
+    </tr>
+
+
+</table>
+
+
+<form action="/" method="get"><input type="submit" value=signout></form>
+
+
