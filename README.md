@@ -45,11 +45,13 @@ Responsibilities | Collaborators
 id | 
 Name | 
 AdminId | 
+PersonId | 
+
 
 ## Mock-Up
 
-![new-amdin-ejs](./images/mockup-new-admin)
+![new-amdin-ejs](./images/mockup-new-admin.png)
 
-![login-ejs](./images/mockup-new-admin)
+![login-ejs](./images/mockup-login.png)
 
-![library-ejs](./images/mockup-new-admin)
+![library-ejs](./images/mockup-library.png)
