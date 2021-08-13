@@ -1,0 +1,27 @@
+{
+  "name": "build-day-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themegatree/Build-Day-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/themegatree/Build-Day-2/issues"
+  },
+  "homepage": "https://github.com/themegatree/Build-Day-2#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.6",
+    "nodemon": "^2.0.12",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
+  }
+}
